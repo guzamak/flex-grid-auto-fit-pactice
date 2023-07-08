@@ -141,11 +141,12 @@ nav ul li {
     transform-origin: bottom;
 }
 .bio .picture .plant1{
-    animation: plant1 3s ease infinite,plantopen 1s ease-out;
+    animation: plant1 3s ease 1s infinite,plantopen 1s ease-out;
 }
 .bio .picture .plant2{
     left: 40%;
-    animation: plant2 3s ease infinite,plantopen 1s ease-out;
+    animation: plant2 3s ease 1s infinite,plantopen 1s ease-out;
+    /* ใส่ delay 1 วิรอ plantopen */
 }
 @keyframes plantopen {
     0%{
