@@ -1,0 +1,424 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*add font*/
+@font-face {
+    font-family: 'Ruhl';
+    src: url('fonts/FrankRuhlLibre-Regular.ttf');
+}
+@font-face {
+    font-family: 'Ruhl-Medium';
+    src: url('fonts/FrankRuhlLibre-Medium.ttf');
+}
+@font-face {
+    font-family: 'Vibes';
+    src: url('fonts/GreatVibes-Regular.ttf');
+}
+
+html{
+    font-size: 62.5%;/*rem อ้างอิงตาม root element*/
+    --header-1:calc(1.25rem + 1vw);
+    --header1:calc(2rem + 1vw);
+    --header2:calc(3rem + 1vw);
+    --header3:calc(3.5rem + 1vw);
+    --header4:calc(4rem + 1vw);
+    --header5:calc(5rem + 1vw);
+    --background-color: #414141;
+    --text: calc(1.5rem + 1vw);
+    --special-color: #906272;
+    --gray-text: #525252;
+    scroll-behavior: smooth;
+}/*เเก้ทุกอย่างได้ใน html พร้อมกัน*/
+body{
+    overflow-x:hidden;
+    animation: openbody 1.5s ease;
+}
+@keyframes openbody {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opadcity:100%;
+    }
+}
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+a,p,label{
+    font-size: var(--text);
+}
+nav .humber{
+    display: none;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 5vh;
+    padding: 2rem 5vw;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    z-index: 2;
+    position: relative;/*เเก้ให้เงามองเห็น*/
+}
+nav h1{
+    font-size: var(--header1);
+    font-family: 'Vibes';
+    flex: 1 1 20rem;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 20rem;
+    padding: 0 5%;
+}
+nav ul li {
+     margin: 0 2rem;
+}
+
+.bio{
+    display: flex;
+    flex-wrap:wrap;
+    width: 100%;
+    min-height: 90vh;
+    overflow: hidden;
+}
+.bio .text{
+    flex: 2 1 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 12% ;
+}
+.bio .text h1{
+    font-size:var(--header2);
+    font-family: 'Ruhl';
+    font-weight: 1000;
+}
+.bio .text>p{
+    padding: 5%;
+    color: var(--gray-text);
+}
+.bio .text a{
+    border-width: 0.25rem;
+    border-color: #414141;
+    border-style: solid;
+    padding: 2rem 5rem;
+    transition: all 1s ;
+}
+.bio .text a:hover{
+    border-color: var(--special-color);
+    background-color: var(--special-color);
+}
+.bio .picture{
+    flex:1 1 40rem;/*min-height = 100 vh ถ้าใช้ height =100%จะได้100vh เเต่เราเปลี่ยนขนาดจาก .text ขนาดเกิน 100vh*/
+    background-color: gainsboro;
+    position: relative;
+    
+}
+.bio .picture .hero{
+    width: 100%;/*ขนาดตามตัวครอบ picture(หลัง .text ปรับไปเเล้ว(ขนาด .picture)*/
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    position: relative;/*ส่งผลให้ z index ทำงานได้*/
+}
+.bio .picture .plant{
+    height: 80%;
+    position: absolute;
+    left: -20%;
+    bottom: 0%;
+    transform-origin: bottom;
+}
+.bio .picture .plant1{
+    animation: plant1 3s ease infinite,plantopen 1s ease-out;
+}
+.bio .picture .plant2{
+    left: 40%;
+    animation: plant2 3s ease infinite,plantopen 1s ease-out;
+}
+@keyframes plantopen {
+    0%{
+        transform: rotateX(90deg);
+    }
+    100%{
+        transform: rotateX(0deg);
+    }
+}
+@keyframes plant1 {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes plant2 {
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+
+.about{
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.about .picture{
+    flex: 1 1 40rem;
+    position: relative;
+}
+.about .picture p{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-20%);
+    font-family: 'Ruhl';
+    font-weight: bold;
+    font-size: var(--header3);
+    letter-spacing: 2rem;
+}
+.about .picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about .text{
+    flex: 2 1 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    background-color: var(--background-color);
+    color: white;
+}
+.about .text>h1{
+    margin-top: 5rem;
+    font-family: 'Vibes';
+    font-size: var(--header2);
+}
+.about .text div h1{
+    font-size: var(--header2);
+    font-family: 'Ruhl';
+    font-weight: 900;
+}
+.about .text div{
+    margin: 4rem 0;
+}
+.about .text div p {
+    padding: 2rem 0;
+}
+
+.work{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,60vh);
+    position: relative;
+}
+.work img{
+    height: 100%;/*ขนาดตาม grid*/
+    width: 100%;
+    object-fit: cover;
+}
+.work img:nth-child(1){
+    grid-column: 1/3;
+}
+.work img:nth-child(2){
+    grid-column: 3/4;
+    grid-row: 1/3;
+}
+.work .text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--background-color);
+    color: white;
+    padding: 5rem 10%;
+    text-align: center;
+}
+.work .text h1{
+    font-size: var(--header2);
+    font-family: 'Ruhl';
+    font-weight: bolder;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 90vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+.contact .text{
+    flex: 1 1 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact div{
+    margin: 2rem 0;
+}
+.contact h1{
+    font-family: 'Ruhl';
+    font-weight: bold;
+}
+.contact h1:nth-child(1){
+    font-size: var(--header4);
+}
+.contact h1:nth-child(2){
+    font-size: var(--header5);
+    color: var(--special-color);
+}
+.contact .text form{
+    margin-top: 5%;
+    display: inherit;
+    flex-direction: inherit;
+    width: 50%;
+}
+.contact .text form label{
+    font-size: var(--header1);
+    margin: 1.25rem;
+}
+.contact .text form input,button{
+    font-size: var(--header-1);
+    margin: 1.25rem;
+    padding: 1rem;
+    color: white;
+}
+.contact .text form input{
+    background-color: var(--background-color);
+}
+.contact .text form button{
+    background-color: var(--special-color);
+}
+.contact .text{
+    flex: 1 1 40rem;
+}
+
+.contact  img{
+    flex: 1 1 40rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--background-color);
+    color:white;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+}
+footer h1{
+    flex: 1 1 20rem;
+    font-size: var(--header-1);
+    font-family: 'Ruhl';
+}
+footer ul {
+    flex: 1 1 20rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3%;
+}
+/* footer media qurey */
+@media (max-width:443px) {
+
+    footer h1{
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+}
+/* nav media qurey */
+@media(max-width:840px){
+    nav ul{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top:0;/*ทำให้top อยู่จุดเริ่มต้น*/
+        left: 100%;
+        background-color: var(--background-color);
+        transition: all 1s;
+    }
+    nav ul li a{
+        color: white;
+        font-size: var(--header1);
+        text-decoration: underline;
+    }
+    .ultoggle{
+        transform: translate(-100%,0);
+    }
+    nav .humber{
+        display: flex;
+        flex-direction: column;
+    }
+    nav .humber span{
+        margin: 5% 0;
+        height: 0.3rem;
+        width:  2.5rem;
+        background-color: var(--background-color);
+        transition: all 1s ease-in-out;
+    }
+    .spanchangecolor{
+        background-color: white !important;
+    }   
+
+    .span1toggle{
+        transform: rotate(45deg) translate(0,250%);
+    }
+    .span2toggle{
+        transform: translate(-20%,0) scale(0);
+        transform-origin: center;
+    }
+    .span3toggle{
+        transform: rotate(-45deg) translate(0,-250%);
+    }
+
+}
+/* work and contact media qurey */
+@media (max-width:800px) {
+    .work{
+        grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    }
+    .work img:nth-child(1){
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .work img:nth-child(2){
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .work .text{
+        display: none;
+    }
+    .contact img{
+        display: none;
+    }
+}
