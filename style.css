@@ -407,11 +407,7 @@ footer ul {
     .work{
         grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
     }
-    .work img:nth-child(1){
-        grid-column: auto;
-        grid-row: auto;
-    }
-    .work img:nth-child(2){
+    .work img:nth-child(1),img:nth-child(2){
         grid-column: auto;
         grid-row: auto;
     }
